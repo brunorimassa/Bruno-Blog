@@ -24,7 +24,7 @@ Bootstrap(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'  # This line was to use SQLite
 # HEROKU - PostgreSQL:
 # The next line is the configuration of Postgres SQL in Heroku:
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")  # The "," is for when running Locally
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL_1")  # The "," is for when running Locally
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'sqlite:///blog.db')  # The "," is for when running Locally
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
