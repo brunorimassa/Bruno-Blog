@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, flash, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from datetime import date
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, desc
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
@@ -105,7 +105,8 @@ def load_user(user_id):
 
 @app.route('/')
 def get_all_posts():
-    posts = BlogPost.query.all()
+    # posts = BlogPost.query.all()
+    posts = BlogPost.query.order_by(desc(BlogPost.id)).all()
     return render_template("index.html", all_posts=posts, logged_in=current_user.is_authenticated)
 
 
